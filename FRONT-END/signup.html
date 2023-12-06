@@ -12,27 +12,7 @@
     />
     <link href="style.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400,400i,600,800" rel="stylesheet"> 
-  <style> /*body{
-        background-image: url(images/accueil1.png);
-        background-size: cover;
-  background-position: center;
-  height: 150vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-    }
-    /*.form-container{
-      background-color: white; 
-      padding: 20px;
-      border-radius: 0px;
-      width: 100%;
-      max-width: 400px;
-      height:600px;
-      margin: auto;
-      align-content: center;
-      text-align: center;
-      margin-top: 100px;
-        }*/
+  <style> 
         .container {
   position: absolute;
   max-width: 100%; /* Adjust the maximum width as needed */
@@ -43,11 +23,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color:white; /* Adjust the background color and opacity as needed */
+  background-color:white; 
   padding: 20px;
   border-radius: 0px;
    margin: auto;
-   margin-top: 80px;
+   margin-top: 60px;
 }
 
         p.text-SemiBold{
@@ -59,6 +39,10 @@ line-height: 49.5px;
 text-align: center;
 }
 
+.titreform p {
+    margin-bottom: 0px; /* Ajustez la valeur selon votre préférence */
+  }
+
 footer.text-Regular{
     color: #000;
 text-align: center;
@@ -66,7 +50,8 @@ font-family: 'Open Sans',sans-serif;
 font-size: 13px;
 font-style: normal;
 font-weight: 400;
-line-height: 125%; /* 20px */
+line-height: 125%; 
+margin-bottom: 15px;
 }
 
 a.text-ExtraBold{
@@ -80,24 +65,24 @@ line-height: 125%;
 
 .form-label-custom{
 color: var(--gray-500, #6B7280);
-margin-right: 310px;
+
 font-family: 'Open Sans';
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
-line-height: 125%; /* 17.5px */
-margin-bottom: 10px;
+line-height: 125%; 
+
 }
 
 .form-label-customp{
 color: var(--gray-500, #6B7280);
-margin-right: 280px;
+
 font-family: 'Open Sans';
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
-line-height: 125%; /* 17.5px */
-margin-bottom: 10px;
+line-height: 125%; 
+
 }
 
 input.form-control{
@@ -105,10 +90,60 @@ input.form-control{
     background-color: #F9FAFB;
 }
 
+
 input[type="checkbox"]:checked {
-  background-color: #AE9775; /* Couleur de fond de la case à cocher cochée */
-  border-color: #AE9775; /* Couleur de la bordure de la case à cocher cochée */
+  background-color: #AE9775; 
+  border-color: #AE9775; 
 }
+
+
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-container > div {
+    width: calc(50% - 10px); /* Utilisez calc pour prendre en compte la marge entre les éléments */
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Inclut les bordures et les marges dans la largeur totale */
+  }
+
+  .form-container .titreform,
+  .form-container .form-check,
+  .form-container .submit-btn {
+    width: 100%; /* Les éléments spécifiques restent à 100% de largeur */
+  }
+
+  @media (max-width: 768px) {
+    .form-container > div {
+      width: 100%; /* Si la largeur de l'écran est inférieure à 768px, passez à une seule colonne */
+    }
+  }
+  .container-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+.form-check{
+}
+
+/*.form-check-input#termsAndConditions {
+    margin-left: 150px !important;
+
+  }*/
+
+.submission{
+  margin-left: 165px;
+}
+
+a.text-beige:hover{
+color: #AE9775;
+}
+
 </style>
 </head>
 <body>
@@ -157,43 +192,47 @@ input[type="checkbox"]:checked {
       </nav>
       
       <img src="images/accueil1.png" class="img-fluid">
-     
-      <div class="form-container ">
-        <div class="mb-1 titreform">
-         <p class=" text-SemiBold ">Sign Up</p>
-         <footer class="lead text-noir text-Regular">Create an account to schedule a consultation for an </br>
-            unforgettable decor and elevate your event with us ! </footer>
-     </div>
-             <div class=" mb-1">
-                 <label for="email" class="form-label-custom " >Email *</label>
-                 <input type="email" class="form-control" id="email" placeholder="name@gmail.com" required>
-               </div>
-               <div class=" mb-1">
-                 <label for="name" class="form-label-custom " >Full name *</label>
-                 <input type="text" class="form-control" id="name" placeholder="Last-name First-name" required>
-               </div>
-               <div class=" mb-1">
-                <label for="phonenumber" class="form-label-custom " >Phone number *</label>
-                <input type="tel" class="form-control" id="phonenumber" placeholder="+213  567894365" required>
-              </div>
-               <div class=" mb-1">
-                <label for="passwordInput" class="form-label-customp " >Password *</label>
-                <input type="password" class="form-control" id="passwordInput" placeholder="••••••••••" required>
-              </div>
-              <div class="mb-1">
-                <label for="confirmPassword" class="form-label-customp">Confirm Password *</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••••" required>
-              </div>
-              <div class="mb-1 form-check">
-                <input type="checkbox" class="form-check-input" id="termsAndConditions" required>
-                <label class="form-check-label" for="termsAndConditions">I accept the terms and conditions *</label>
-              </div>
-              
-               <div class="mb-1">
-                 <button type="submit" class="btn custom-btn-beige text-blanc mb-1">Sign Up</button>
-               </div>
-         </div>
-         
+     <form onsubmit="return validatePassword()">
+      <div class="form-container">
+        <div class="mb-3 titreform">
+          <p class="text-SemiBold text-beige">Sign Up</p>
+          <footer class="lead text-noir text-Regular">Create an account to schedule a consultation for an unforgettable decor and elevate your event with us ! </footer>
+        </div>
+        
+        <div class="mb-3">
+          <label for="name" class="form-label-custom">First name *</label>
+          <input type="text" class="form-control" id="name" placeholder="First-name" required>
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label-custom">Last name *</label>
+            <input type="text" class="form-control" id="lname" placeholder="Last-name " required>
+          </div>
+       
+        <div class="mb-3">
+          <label for="phonenumber" class="form-label-custom">Phone number *</label>
+          <input type="tel" class="form-control" id="phonenumber" placeholder="+213  567894365" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label-custom">Email *</label>
+            <input type="email" class="form-control" id="email" placeholder="name@gmail.com" required>
+          </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label-customp">Password *</label>
+          <input type="password" class="form-control" id="passwordInput" placeholder="••••••••••" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label-customp">Confirm Password *</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••••" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input custom-checkbox" id="termsAndConditions" required>
+          <label class="form-check-label" for="termsAndConditions">I accept<a href="termsAndConditions.html" class="text-beige"> the terms and conditions</a> *</label>
+        </div>
+        <div class="mb-3 submission">
+          <button type="submit" class="btn custom-btn-beige text-blanc mb-1">Sign Up</button>
+        </div>
+        </div>
+      </form>
          <script>
             function validatePassword() {
               var passwordInput = document.getElementById('passwordInput').value;
