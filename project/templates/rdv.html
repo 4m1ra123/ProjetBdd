@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+      
+       {% for type in qs %}
+              <div class="item" data-value="{{type}}">{{type}}</div> 
+       {% endfor%} 
+                      
+       
+<!-- 
+
+def get_json_team(request,*args,**kwargs):
+selected_type= kwargs.get('typeEvent')
+dates=list(Creneau.objects.filter(type_team=selected_type).values())
+return JsonResponse({'data':dates})
+ -->
+
+</body>
+</html>
