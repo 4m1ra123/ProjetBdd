@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="all.min.css" />
+  <link rel="stylesheet" href="framework.css" />
+  <link rel="stylesheet" href="master.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="pagination.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <link href="counter.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+
+  <!-- Bootstrap JS -->
+
+  <!-- Graphe Statistiques -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawVisualization);
+
+    function drawVisualization() {
+      // Some raw data (not necessarily accurate)
+      var data = google.visualization.arrayToDataTable([
+        ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+        ['2004/05',  165,      938,         522,             998,           450,      614.6],
+        ['2005/06',  135,      1120,        599,             1268,          288,      682],
+        ['2006/07',  157,      1167,        587,             807,           397,      623]
+      ]);
+
+      var options = {
+        title : 'Monthly Coffee Production by Country',
+        vAxis: {title: 'Cups'},
+        hAxis: {title: 'Month'},
+        seriesType: 'bars',
+        series: {5: {type: 'line'}}
+      };
+
+      var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+<title>Dashboard</title>
+  <!-- Additional Styles -->
+  <style>
+    .unstyled-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    svg {
+      margin-bottom: 5px;
+      margin-right: 3px;
+    }
+
+    .sidebar {
+      text-decoration: none;
+    }
+
+    .globe {
+      color: black;
+    }
+
+    .globe:hover {
+      color: #AE9775;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="page d-flex">
+    <!-- Start Sidebar -->
+    <div class="sidebar bg-white p-20 p-relative">
+     <h3 class="p-relative mt-0 txt-c">Light me up</h3>
+      <ul>
+        <li>
+          <a class="active d-flex align-center fs-14 c-black radius-6 p-10" href="index.html">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a class="d-flex align-center fs-14 c-black radius-6 p-10" href="events.html">
+            <i class="bi bi-balloon"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a class=" d-flex align-center fs-14 c-black radius-6 p-10" href="members.html">
+              <i class="bi bi-people"></i>
+              <span>Members</span>
+          </a>
+        </li>
+        <li>
+          <a class="d-flex align-center fs-14 c-black radius-6 p-10" href="appointments.html">
+            <i class="bi bi-calendar4-event"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li>
+          <a class="d-flex align-center fs-14 c-black radius-6 p-10" href="accueil.html">
+            <i class="bi bi-cake"></i>
+            <span>Website</span>
+          </a>
+        </li>
+        <li>
+            <a class="d-flex align-center fs-14 c-black radius-6 p-10" href="#" id="logoutLink">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+    <!-- End Sidebar -->
+    <div class="content w-full hidden">
+      <!-- Start Head -->
+      <div class="head p-15 between-flex bg-white">
+        <div class="search p-relative">
+          <input type="search" placeholder="Type A Keyword" class="p-10" ></input>
+        </div>
+        <div class="icons d-flex align-center">
+        
+        
+           <span class="notification p-relative" style="margin-right: 30px;">
+            <i class="bi bi-bell"></i>
+          </span> 
+          
+        </div>
+      </div>
+      <!-- End Head -->
+      <h1 class="p-relative">Admin</h1>
+      <!--Counter Start-->
+      <div class="container">
+    
+        <div class="row">
+    
+      <div class="four col-md-3">
+        <div class="counter-box colored">
+          <i class="bi bi-calendar-check m-b-1"></i>
+          <span class="counter">8558</span>
+          <p>Current  Events</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="bi bi-people-fill m-b-1"></i>
+          <span class="counter">32568</span>
+          <p>Members</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="bi bi-calendar-x m-b-1"></i>
+          <span class="counter">2568</span>
+          <p>Achieved events</p>
+        </div>
+      </div>
+      <div class="four col-md-3">
+        <div class="counter-box">
+          <i class="bi bi-calendar-plus m-b-1"></i>
+          <span class="counter">668</span>
+          <p>Upcoming Events</p>
+        </div>
+      </div>
+      </div>	
+    </div>
+    <!--Counter End-->
+
+    <!--Graphic Start-->
+    <div class="projects widget-style m-20">
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    </div>
+    <!--Graphic End-->
+     <!-- Start Project Table -->
+     <div class="projects widget-style m-20">
+      <h2 class="mt-0 mb-20">Employees</h2>
+      <div >
+        <table class="fs-15 w-full">
+            <tr id="Attributes_emp">
+              <td id="Name_emp">Alitouche Lylia</td>
+              <td id="Email_emp">l_alitouche@estin.dz</td>
+              <td id="Phone_emp">0540257012</td>
+              <td id="Team_emp">Anniversary Team</td>
+              <td>  <img src="images/prochainevent.png" alt=""> </td>
+              <td id="options"><a href="members.html" class="modifemp">•••</a></td>
+            </tr>
+          <tbody>
+            <tr id="Attributes_emp1">
+              <td id="Name_emp">Name</td>
+              <td id="Email_emp">Email</td>
+              <td id="Phone_emp">Phone</td>
+              <td id="Team_emp">Team</td>
+              <td>  <img src="images/prochainevent.png" alt=""> </td>
+              <td id="options"><a href="members.html" class="modifemp">•••</a></td>
+            </tr>
+            <tr  id="Attributes_emp2">
+              <td id="Name_emp">Name</td>
+              <td id="Email_emp">Email</td>
+              <td id="Phone_emp">Phone</td>
+              <td id="Team_emp">Team</td>
+              <td>  <img src="images/prochainevent.png" alt=""> </td>
+              <td id="options"><a href="members.html" class="modifemp">•••</a></td>
+            </tr>
+            <tr  id="Attributes_emp3">
+              <td id="Name_emp">Name</td>
+              <td id="Email_emp">Email</td>
+              <td id="Phone_emp">Phone</td>
+              <td id="Team_emp">Team</td>
+              <td>  <img src="images/prochainevent.png" alt=""> </td>
+              <td id="options"><a href="members.html" class="modifemp">•••</a></td>
+            </tr>
+            <tr  id="Attributes_emp4">
+              <td id="Name_emp">Name</td>
+              <td id="Email_emp">Email</td>
+              <td id="Phone_emp">Phone</td>
+              <td id="Team_emp">Team</td>
+              <td>  <img src="images/prochainevent.png" alt=""> </td>
+              <td id="options"><a href="members.html" class="modifemp">•••</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="demo">
+        <nav class="pagination-outer" aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+    <!-- End Project Table -->
+    
+    <div class="projects projet widget-style m-20">
+        <div class="d-flex txt-c gap-20 f-wrap">
+          <div class="box fs-13 c-grey">
+            <img class="imgevent" src="images/prochainevent.png" style="width: 80%; height: 100%; object-fit: cover;"/>
+          </div>
+          <div class="box p-20 " >
+           
+        <h2 class="mt-0 mb-10">Prochain evenement</h2>
+        <footer class="mt-0 mb-20 c-grey fs-15" style="color: #AE9775; margin-right: 210px;">
+          dans 3 jours
+        </footer>
+        <ul class="unstyled-list">
+        <li style="margin-bottom: 20px;" id="nameEvent"><b>Graduation Party</b></li>
+        <li id="placeEvent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+          <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+          <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg><b> Place:</b> Bejaia</li>
+        <li id="dateEvent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+        </svg><b> Date:</b>  Dimanche 25 avril</li>
+        <li id="hourEvent"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+          <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+        </svg><b> Heure:</b> A partir de 8h</li>
+        </ul>
+        <a href="events.html"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button></a>
+        <a href="events.html"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script>
+
+<!-- Counter-Up Script -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+<!-- Bootstrap JS (already included in your code) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Your other scripts and the closing </body> tag -->
+
+  <script>
+    document.getElementById('logoutLink').addEventListener('click', function(event) {
+        // Empêche le lien de suivre le chemin par défaut
+        event.preventDefault();
+
+        // Ajoutez ici le code pour effectuer la déconnexion, par exemple, redirigez vers la page de connexion
+        window.location.href = 'login.html'; // Remplacez 'path/to/logout' par l'URL réelle pour la déconnexion
+        alert('Vous êtes déconnecté !');
+   });
+
+        
+   $(document).ready(function() {
+
+$('.counter').each(function () {
+$(this).prop('Counter',0).animate({
+Counter: $(this).text()
+}, {
+duration: 4000,
+easing: 'swing',
+step: function (now) {
+    $(this).text(Math.ceil(now));
+}
+});
+});
+
+});  
+
+</script>
+</body>
+
+</html>
