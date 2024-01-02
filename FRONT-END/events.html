@@ -85,7 +85,9 @@
     margin: 10px;
 }
 
-
+.modification-form {
+            display: none;
+        }
 
 </style>
 
@@ -97,7 +99,7 @@
   <div class="page d-flex">
     <!-- Start Sidebar -->
     <div class="sidebar bg-white p-20 p-relative">
-     <h3 class="p-relative mt-0 txt-c">Light me up</h3>
+     <h3 class="p-relative mt-0 txt-c"><img src="images/logonoir.png" style="width: 150px; height: 50px;"></h3>
       <ul>
         <li>
           <a class="d-flex align-center fs-14 c-black radius-6 p-10" href="index.html">
@@ -165,7 +167,7 @@
           dans 3 jours
         </footer>
         <div class="box fs-13 c-grey">
-            <img class="imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
+            <img class="photoEvent imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
           </div>
           <ul class="unstyled-list" style="margin-top: -170px;">
             <li class="eventName"><b>Graduation Party</b></li>
@@ -174,7 +176,7 @@
             <li class="hourEvent"> <i class="bi bi-clock" style="color: #000;"></i><b> Heure:</b> A partir de 8h</li>
           </ul>
         <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button></a>
-        <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
+        <a href="#" onclick="toggleModificationForm(1); return false;"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
           </div>
       </div>
       <!--Evenement 2-->
@@ -185,7 +187,7 @@
         dans 3 jours
       </footer>
       <div class="box fs-13 c-grey">
-          <img class="imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
+          <img class="photoEvent imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
         </div>
       <ul class="unstyled-list" style="margin-top: -170px;">
   <li class="eventName"><b>Graduation Party</b></li>
@@ -194,9 +196,10 @@
   <li class="hourEvent"> <i class="bi bi-clock" style="color: #000;"></i><b> Heure:</b> A partir de 8h</li>
 </ul>
       <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button></a>
-      <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
+      <a href="#" onclick="toggleModificationForm(2); return false;"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
         </div>
     </div>
+    <!--Evenement 3-->
     <div class="plan green bg-white p-20"> 
         <div class="box p-20 "> 
       <h2 class="mt-0 mb-10">Prochain evenement</h2>
@@ -204,7 +207,7 @@
         dans 3 jours
       </footer>
       <div class="box fs-13 c-grey">
-          <img class="imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
+          <img class="photoEvent imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
         </div>
         <ul class="unstyled-list" style="margin-top: -170px;">
             <li class="eventName"><b>Graduation Party</b></li>
@@ -213,7 +216,7 @@
             <li class="hourEvent"> <i class="bi bi-clock" style="color: #000;"></i><b> Heure:</b> A partir de 8h</li>
           </ul>
       <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button></a>
-      <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
+      <a href="#" onclick="toggleModificationForm(3); return false;"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
         </div>
     </div>
     <div class="plan green bg-white p-20"> 
@@ -223,7 +226,7 @@
         dans 3 jours
       </footer>
       <div class="box fs-13 c-grey">
-          <img class="imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
+          <img class="photoEvent imgevent1" src="images/prochainevent.png" style="width: 40%; height: 50%; object-fit: cover; margin-left: 250px;"/>
         </div>
       <ul class="unstyled-list" style="margin-top: -170px;">
   <li class="eventName"><b>Graduation Party</b></li>
@@ -231,10 +234,62 @@
   <li class="dateEvent"><i class="bi bi-calendar" style="color:#000;"></i><b> Date:</b> 25 April 2023</li>
   <li class="hourEvent"> <i class="bi bi-clock" style="color: #000;"></i><b> Heure:</b> A partir de 8h</li>
 </ul>
-      <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button></a>
-      <a href=""><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
+      <button class="btn custom-btn-beige text-blanc" style="width: 150px;">Supprimer</button>
+      <a href="#" onclick="toggleModificationForm(4); return false;"><button class="btn custom-btn-beige text-blanc" style="width: 150px;">Modifier</button></a>
         </div>
     </div>
+
+    
+    <div id="modificationForm1" class="modification-form">
+        <!-- Your modification form fields go here -->
+        <form>
+            Photo Event: <input type="file" name="photoEvent"><br>
+            Date Event: <input type="date" name="dateEvent"><br>
+            Hour Event: <input type="text" name="hourEvent"><br>
+            Name Event: <input type="text" name="nameEvent"><br>
+            Type Event: <input type="text" name="typeEvent"><br>
+            <button type="button" onclick="saveModification(1)">Save</button>
+        </form>
+    </div>
+    
+    <!-- Modification Form for Event 2 -->
+    <div id="modificationForm2" class="modification-form">
+        <!-- Your modification form fields go here -->
+        <form>
+            Photo Event: <input type="file" name="photoEvent"><br>
+            Date Event: <input type="date" name="dateEvent"><br>
+            Hour Event: <input type="text" name="hourEvent"><br>
+            Name Event: <input type="text" name="nameEvent"><br>
+            Type Event: <input type="text" name="typeEvent"><br>
+            <button type="button" onclick="saveModification(2)">Save</button>
+        </form>
+    </div>
+
+    <div id="modificationForm3" class="modification-form">
+        <!-- Your modification form fields go here -->
+        <form>
+            Photo Event: <input type="file" name="photoEvent"><br>
+            Date Event: <input type="date" name="dateEvent"><br>
+            Hour Event: <input type="text" name="hourEvent"><br>
+            Name Event: <input type="text" name="nameEvent"><br>
+            Type Event: <input type="text" name="typeEvent"><br>
+            <button type="button" onclick="saveModification(3)">Save</button>
+        </form>
+    </div>
+
+    <div id="modificationForm4" class="modification-form">
+        <!-- Your modification form fields go here -->
+        <form>
+            Photo Event: <input type="file" name="photoEvent"><br>
+            Date Event: <input type="date" name="dateEvent"><br>
+            Hour Event: <input type="text" name="hourEvent"><br>
+            Name Event: <input type="text" name="nameEvent"><br>
+            Type Event: <input type="text" name="typeEvent"><br>
+            <button type="button" onclick="saveModification(4)">Save</button>
+        </form>
+    </div>
+
+    
       </div>
      <!-- Start Project Table -->
      <div class="projects widget-style m-20">
@@ -501,6 +556,40 @@
             });
         });
     });
+    document.addEventListener("DOMContentLoaded", function() {
+        var modificationForms = document.querySelectorAll(".modification-form");
+        for (var i = 0; i < modificationForms.length; i++) {
+            modificationForms[i].style.display = "none";
+        }
+    });
+
+    function toggleModificationForm(eventNumber) {
+        var modificationForm = document.getElementById("modificationForm" + eventNumber);
+        modificationForm.style.display = (modificationForm.style.display === "none") ? "block" : "none";
+    }
+
+    function saveModification(eventNumber) {
+        var modificationForm = document.getElementById("modificationForm" + eventNumber);
+
+        // Récupérez les valeurs des nouveaux champs
+        var photoEvent = modificationForm.querySelector('input[name="photoEvent"]').files[0];
+        var dateEvent = modificationForm.querySelector('input[name="dateEvent"]').value;
+        var hourEvent = modificationForm.querySelector('input[name="hourEvent"]').value;
+        var nameEvent = modificationForm.querySelector('input[name="nameEvent"]').value;
+        var typeEvent = modificationForm.querySelector('input[name="typeEvent"]').value;
+
+        // Vous pouvez maintenant utiliser ces valeurs comme vous le souhaitez
+        console.log("Photo Event: ", photoEvent);
+        console.log("Date Event: ", dateEvent);
+        console.log("Hour Event: ", hourEvent);
+        console.log("Name Event: ", nameEvent);
+        console.log("Type Event: ", typeEvent);
+
+        // Implémentez ici la logique pour enregistrer les modifications, y compris le traitement du fichier image côté serveur si nécessaire
+
+        // Enfin, masquez le formulaire de modification
+        modificationForm.style.display = "none";
+    }
 
 </script>
 
